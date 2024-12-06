@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #043873 0%, #1a3f85 40%, #245eac 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            padding: 15px 30px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .navbar .logo {
+            color: white;
+            font-weight: bold;
+            background: none;
+            padding: 8px 10%;
+            border-radius: 50%;
+            font-size: 28px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 10px;
+            margin-right: 80px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+        background-color: #4F9CF9;
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            height: 70%;
+            background: linear-gradient(to bottom right, #1a3f85, #4F9CF9); 
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            margin-top: 150px;
+        }
+
+        .signup-box {
+            flex: 1;
+            background: white;
+            color: #043873;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .signup-box h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .signup-box input {
+            width: 90%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .signup-box input:focus {
+            border: 2px solid #4F9CF9;
+            box-shadow: 0 0 8px rgba(79, 156, 249, 0.5);
+        }
+
+        .signup-button {
+            width: 50%;
+            padding: 15px;
+            background-color: #4F9CF9;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s;
+            margin-top: 20px;
+        }
+
+        .signup-button:hover {
+            background-color: #357ae8;
+            transform: scale(1.05);
+        }
+
+        .section {
+            flex: 1;
+            background: linear-gradient(to bottom, #245eac, #4F9CF9); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .login-button {
+            padding: 15px 30px;
+            background-color: white;
+            color: #4F9CF9;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .login-button:hover {
+            background-color: #e6e6e6;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #043873;
+            color: white;
+            margin-top: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MicroClassify</div>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('upload') }}">Upload & Classify</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('login') }}">Login/Singup</a></li>
+      </nav>
+
+    <div class="container">
+        <div class="signup-box">
+            <h2>Create Account</h2>
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email Address">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Confirm Password">
+            <button class="signup-button">Sign Up</button>
+        </div>
+
+        <div class="section">
+            <h2>Already Registered?</h2>
+            <p>Log in to access your account and start using MicroClassify.</p>
+            <a href="{{ url_for('login') }}"><button class="login-button">Log In</button></a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 RadarVision. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

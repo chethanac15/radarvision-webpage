@@ -1,0 +1,14 @@
+*.keras
+*.h5
+*.pt
+*.bat
+*.sh
+*.log
+*.env
+*venv/
+*__pycache__/
+*monitor.py
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

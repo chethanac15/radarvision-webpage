@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #043873 0%, #1a3f85 40%, #245eac 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent; 
+            padding: 15px 30px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .navbar .logo {
+            color: white; 
+            font-weight: bold;
+            background: none; 
+            padding: 8px 10%;
+            border-radius: 50%;
+            font-size: 28px;
+
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 10px;
+            margin-right: 80px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            background-color: #4F9CF9;
+        }
+
+
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            height: 70%;
+            background: linear-gradient(to bottom right, #1a3f85, #4F9CF9); 
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            margin-top: 150px;
+        }
+
+        .left-section {
+            flex: 1;
+            background-color: #043873;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .left-section h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .login-box {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .login-input {
+            width: 90%;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .login-input:focus {
+            border: 2px solid #4F9CF9;
+            box-shadow: 0 0 8px rgba(79, 156, 249, 0.5);
+        }
+
+        .login-button {
+            width: 60%;
+            margin-left: 16%;
+            padding: 15px;
+            background-color: #4F9CF9;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .login-button:hover {
+            background-color: #357ae8;
+            transform: scale(1.05); 
+        }
+
+        .right-section {
+            flex: 1;
+            background: linear-gradient(to bottom, #245eac, #4F9CF9); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .right-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .right-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sign-up-button {
+            padding: 15px 30px;
+            background-color: white;
+            color: #4F9CF9;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .sign-up-button:hover {
+            background-color: #e6e6e6;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #043873;
+            color: white;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MicroClassify</div>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('upload') }}">Upload & Classify</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('login') }}">Login/Singup</a></li>
+      </nav>
+
+    <div class="container">
+        <div class="left-section">
+            <h1>LOGIN</h1>
+            <div class="login-box">
+                <input type="text" placeholder="Username" class="login-input">
+                <input type="password" placeholder="Password" class="login-input">
+                <button class="login-button">Login</button>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <h2>New Here?</h2>
+            <p>Sign up and discover a great amount of new opportunities!</p>
+            <a href="{{ url_for('signup') }}"><button class="sign-up-button">Sign Up</button></a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 RadarVision. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#" aria-label="Twitter"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="#" aria-label="LinkedIn"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+        </div>
+    </footer>
+</body>
+</html>

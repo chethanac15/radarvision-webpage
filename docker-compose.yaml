@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:5000"  # Bind port 80 (HTTP) to Flask's port 5000 inside the container
+    network_mode: bridge
+    volumes:
+      - .:/app
+      - app-data:/app/data
+    environment:
+      - FLASK_ENV=production
+      - FLASK_APP=app.py
+    command: gunicorn --bind 0.0.0.0:5000 app:app
+    restart: always
+
+volumes:
+  app-data:
+

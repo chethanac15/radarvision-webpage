@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MicroClassify</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #043873 0%, #1a3f85 40%, #245eac 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent; 
+            padding: 15px 30px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .navbar .logo {
+            color: white; 
+            font-weight: bold;
+            background: none; 
+            padding: 8px 10%;
+            border-radius: 50%;
+            font-size: 28px;
+
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 10px;
+            margin-right: 80px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            background-color: #4F9CF9;
+        }
+
+    .image {
+      display: flex;
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 100px 50px;
+      height: 100vh;
+    }
+
+    .text-container {
+      margin-left: 12.5%;
+      flex: 1;
+      max-width: 600px; 
+      text-align: left;
+    }
+
+    .image h1 {
+      font-size: 56px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .image p {
+      font-size: 20px; 
+      line-height: 1.8; 
+      margin-bottom: 30px; 
+    }
+
+    .cta-button {
+      padding: 15px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      background-color: #4F9CF9;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .cta-button:hover {
+      background-color: #357ae8;
+      transform: scale(1.05);
+    }
+
+    .image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+    }
+
+    .section {
+      padding: 100px 50px;
+      background: white;
+      color: black;
+    }
+
+    .section h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #043873;
+      text-align: center;
+    }
+
+    .section p {
+      font-size: 20px;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+
+    .feature {
+      text-align: center;
+      max-width: 250px;
+    }
+
+    .feature img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      background: #021d42;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .footer p {
+      font-size: 16px;
+    }
+
+    .footer a {
+      color: #4F9CF9;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">MicroClassify</div>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('upload') }}">Upload & Classify</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      <li><a href="{{ url_for('login') }}">Login/Singup</a></li>
+    </nav>
+
+  <div id="home" class="image">
+    <div class="text-container">
+      <h1>Get More Done with MicroClassify</h1>
+      <p>Project management software that empowers your team to collaborate, plan, analyze, and manage everyday tasks.</p>
+      <a href="{{ url_for('upload') }}"><button class="cta-button">Try MicroClassify Free →</button></a>
+    </div>
+    <div class="image-container">
+      <img src="../static/images/Aircraft-rafiki.svg" alt="Illustration" />
+    </div>
+  </div>
+
+  <div id="mission" class="section">
+    <h2>Our Mission</h2>
+    <p>
+      RadarVision addresses critical safety and security challenges by using advanced radar technology to differentiate drones from other aerial entities such as birds. This innovation ensures reliable and efficient monitoring of airspace to prevent unauthorized activities and enhance security.
+    </p>
+  </div>
+
+  <div id="features" class="section">
+    <h2>Key Features</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="icon1.png" alt="Feature Icon">
+        <p>Real-Time Classification</p>
+      </div>
+      <div class="feature">
+        <img src="icon2.png" alt="Feature Icon">
+        <p>High Accuracy</p>
+      </div>
+      <div class="feature">
+        <img src="icon3.png" alt="Feature Icon">
+        <p>Web-Based Deployment</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact" class="footer">
+    <p>Contact us at <a href="mailto:contact@radarvision.com">contact@radarvision.com</a> or visit our <a href="#">Help Center</a>.</p> <!-- change this later -->
+  </div>
+</body>
+</html>

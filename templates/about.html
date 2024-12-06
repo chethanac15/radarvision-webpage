@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+		body {
+			background-color: #114c94; /* Dark blue background */
+			color: #b2d3f8; /* Light blue text */
+			font-family: 'Poppins', sans-serif;
+			font-weight: 400; /* Default font weight */
+			opacity: 0;
+			transform: translateY(10px);
+			transition: opacity 0.6s ease, transform 0.6s ease;
+		}
+		body.loaded {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		
+		body {
+			font-size: 16px; 
+			line-height: 1.6; 
+			color: #333; 
+		}
+        h1 {
+  			font-size: 2.5rem; 
+  			font-weight: 700;  
+  			line-height: 1.2;  
+		}
+
+		h2 {
+  			font-size: 2rem;   
+  			font-weight: 600;  
+		}
+
+		h3 {		
+  			font-size: 1.75rem;
+  			font-weight: 500;
+		}
+
+		p {
+  			font-size: 1rem;   
+			line-height: 1.8;  
+  			margin-bottom: 1rem; 
+		}
+
+		a {
+  			font-weight: 500;  
+  			text-decoration: underline;
+  			color: #007bff;     
+		}
+
+		a:hover {
+  			color: #0056b3;      
+		}
+
+		button {
+  			font-size: 1rem;     
+  			font-weight: 600;   
+  			text-transform: uppercase; 
+  			letter-spacing: 0.05rem;   
+		}
+        header {
+            background-color: #004d99; /* Dark blue for the header */
+            color: #fff;
+        }
+
+        nav {
+    display: flex;
+    justify-content: space-between; /* Space between the logo and the links */
+    align-items: center;
+    height: 80px;
+    background-color: #112d4e; /* Darker blue for the navbar */
+    padding: 0 20px; /* Add some padding to the navbar */
+}
+
+/* Logo Styling */
+.logo img {
+    height: 60px; /* Adjust height based on your design */
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Navigation Links Container */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none; /* Remove default bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Navigation Links */
+nav ul li {
+    margin: 0 23px;
+}
+
+/* Link Styles */
+nav ul li a {
+    text-decoration: none;
+    color: #92b6e2; /* Light blue for links */
+    font-weight: 500; /* Make links slightly bolder */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect for Links */
+nav ul li a:hover {
+    color: whitesmoke; /* White on hover */
+    font-size: 1.01rem; /* Slightly increase font size on hover */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .logo img {
+        height: 45px; /* Reduce logo size for smaller screens */
+    }
+
+    nav ul {
+        justify-content: flex-end; /* Ensure links align properly on smaller screens */
+    }
+
+    nav ul li {
+		margin: 0 15px;
+	}
+}
+		.left {
+			font-size: 2rem;
+			font-weight: bolder;
+			color: #b8cbda; /* Light blue for the logo */
+			text-decoration: none; /* Remove underline from the logo */
+		}
+
+        /* Main Content */
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #004d99; /* Dark blue for headings */
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #003366;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .footer-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-content li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .footer-content li a {
+            color: #f4f4f4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-content li a:hover {
+            color: #e0e0e0;
+        }
+
+        /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #004d99;
+            color: #fff;
+            font-size: 1.5rem;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            visibility: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        #back-to-top:hover {
+            background-color: #003366;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            #back-to-top {
+                bottom: 10px;
+                right: 10px;
+            }
+            div {
+                font-size: small;
+            }
+        }
+    </style>
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="logo">
+				<img src="{{ url_for('static', filename='images/microclassify logo.png') }}" alt="MicroClassify Logo">
+			</div>
+			<div class="right">
+				<ul>
+					<li><a href="{{ url_for('home') }}">Home</a></li>
+					<li><a href="{{ url_for('about') }}">About</a></li>
+					<li><a href="{{ url_for('contact') }}">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+    <main>
+        <section class="list-name">
+            <div class="name"><h1><u>Team Name: RadarVision</u></h1></div>
+        </section>
+        <section class="oneSection">
+            <div class="name"><h1><u>Abstract</u></h1></div>
+            <div><img src="{{ url_for('static', filename='images/IMG-20240901-WA0005.jpg') }}" alt="flowchat" style="width: 100%; max-height: 400px; object-fit: cover;"></div>
+            <div>
+                <h2>
+                    Protective measures against small unmanned aerial vehicles (UAVs) are crucial for national security. The significance of surveillance systems that can automatically identify and classify low radar cross-section (RCS) aerial targets has become increasingly evident. This project leverages a continuous wave (CW) radar operating at X-band (10 GHz) to build a diversified dataset. The dataset comprises 4,849 micro-Doppler signature images of six different small aerial targets, which are used to train a deep convolutional neural network (DCNN) based on transfer learning.
+                </h2>
+            </div>
+            <hr>
+        </section>
+
+        <section class="twoSection">
+            <div class="name"><h1><u>Model and Data set</u></h1></div>
+            <div>
+                <h2>
+                    We utilized the VGG16 and VGG19 models, pre-trained on the ImageNet dataset, as feature extractors to develop a highly accurate classification system. The models achieved classification accuracies of 96.3% and 96.7%, respectively, with minimal false positives and negatives.
+                    We also built a Custom CNN Model of 15-convolutional layers, which achieved an accuracy of 96.5% in 27 mins of computing time.
+                </h2>
+            </div>
+            <hr>
+        </section>
+
+        <section class="threeSection">
+            <div class="name"><h1><u>Classes of Aerial Targets</u></h1></div>
+            <div>
+                <h2>
+                    The targets classified in this project include:
+                    <p>1. Three-Long-Blade-Rotor</p>
+                    <p>2. Three-Short-Blade Rotor</p>
+                    <p>3. Bird</p>
+                    <p>4. Bird + Mini-Helicopter</p>
+                    <p>5. Drone</p>
+                    <p>6. RC Plane</p>
+                </h2>
+            </div>
+            <hr>
+        </section>
+
+        <section class="fourSection">
+            <div class="name"><h1><u>Input and Output</u></h1></div>
+            <div>
+                <h2>
+                    On this platform, users can upload spectrogram images, which are processed by our trained DCNN model. The system will then classify the input image into one of the six target classes listed above. The output includes the predicted class and the confidence level of the prediction.
+                </h2>
+            </div>
+            <hr>
+        </section>
+
+        <section class="fiveSection">
+            <div class="name"><h1><u>Why this Matters?</u></h1></div>
+            <div>
+                <h2>
+                    As small UAVs become more common, the ability to automatically detect and classify these targets is essential for ensuring security and safety. Our approach not only demonstrates high accuracy but also provides a robust solution for real-time identification of multiple aerial targets operating simultaneously.
+                </h2>
+            </div>
+            <hr>
+        </section>
+
+        <section class="sixSection">
+            <div class="name"><h1><u>Experience the Classifier</u></h1></div>
+            <div>
+                <h2>
+                    You can test the classifier by uploading a spectrogram image of a potential aerial target. The system will analyze the image and provide you with the most likely classification, helping to identify potential threats quickly and efficiently.
+                </h2>
+            </div>
+        </section>
+        <button id="back-to-top">&uarr;</button>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+</body>
+</html>

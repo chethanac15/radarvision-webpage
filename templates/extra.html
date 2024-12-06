@@ -1,0 +1,64 @@
+<style>
+    /* Navbar Container */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center;
+    height: 80px;
+    background-color: #112d4e; /* Darker blue for the navbar */
+    padding: 0 20px; /* Add some padding to the navbar */
+}
+
+/* Logo Styling */
+.logo img {
+    height: 60px; /* Adjust height based on your design */
+    width: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Add some space between logo and the links */
+}
+
+/* Navigation Links Container */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none; /* Remove default bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Navigation Links */
+nav ul li {
+    margin: 0 23px;
+}
+
+/* Link Styles */
+nav ul li a {
+    text-decoration: none;
+    color: #92b6e2; /* Light blue for links */
+    font-weight: 500; /* Make links slightly bolder */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect for Links */
+nav ul li a:hover {
+    color: whitesmoke; /* White on hover */
+    font-size: 1.01rem; /* Slightly increase font size on hover */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .logo img {
+        height: 45px; /* Reduce logo size for smaller screens */
+        margin-right: 10px;
+    }
+
+    nav ul {
+        justify-content: flex-end; /* Ensure links align properly on smaller screens */
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+}
+
+</style>
