@@ -25,49 +25,49 @@
         }
 
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: transparent; 
-            padding: 15px 30px;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 10;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3); /* Matches Login page */
+    padding: 15px 30px; /* Matches Login page padding */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
 
-        .navbar .logo {
-            color: white; 
-            font-weight: bold;
-            background: none; 
-            padding: 8px 10%;
-            border-radius: 50%;
-            font-size: 28px;
+.navbar .logo {
+    color: white; 
+    font-weight: bold;
+    background: none; 
+    padding: 8px 10%;
+    border-radius: 50%; /* Matches rounded logo style in Login */
+    font-size: 28px;
+}
 
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 10px;
+    margin-right: 80px;
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            margin: 0;
-            padding: 10px;
-            margin-right: 80px;
-        }
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
 
-        .nav-links li a {
-            text-decoration: none;
-            color: white;
-            font-size: 20px;
-            padding: 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+.nav-links li a:hover {
+    background-color: #4F9CF9;
+}
 
-        .nav-links li a:hover {
-            background-color: #4F9CF9;
-        }
 
 
         .container {
@@ -80,6 +80,7 @@
             overflow: hidden;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
             margin-top: 150px;
+            height: 600;
         }
 
         .left-section {
@@ -239,11 +240,6 @@
 
     <footer>
         <p>© 2024 RadarVision. All Rights Reserved.</p>
-        <div class="social-icons">
-            <a href="#" aria-label="Facebook"><img src="facebook-icon.png" alt="Facebook"></a>
-            <a href="#" aria-label="Twitter"><img src="twitter-icon.png" alt="Twitter"></a>
-            <a href="#" aria-label="LinkedIn"><img src="linkedin-icon.png" alt="LinkedIn"></a>
-        </div>
     </footer>
 </body>
 </html>
