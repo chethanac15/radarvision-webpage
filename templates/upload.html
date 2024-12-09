@@ -154,22 +154,47 @@ button[type="submit"]:hover {
 .sample-link:hover {
     color: #004ba0;
 }
-
-/* Results */
 #results {
-    margin-top: 20px;
+    margin-top: 25px;
     padding: 20px;
-    background: #f9f9fb;
-    border: 2px solid #2e75c7;
-    border-radius: 5px;
+    background: #eef4fd; /* Slightly brighter, soft background */
+    border: 2px solid #3a81f1; /* Noticeable but clean border */
+    border-radius: 10px;
     display: none;
-    color: #2e3b4e;
+    color: #1e2a42; /* Darker text for stronger readability */
+    font-size: 1.3rem; /* Slightly larger for clarity */
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(58, 129, 241, 0.2); /* Subtle shadow for lift */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth appearance */
+    transform: scale(0.98);
+    opacity: 0;
 }
 
 #results.visible {
     display: block;
+    transform: scale(1);
+    opacity: 1;
 }
 
+#results p {
+    margin-bottom: 15px;
+}
+
+#results p#prediction {
+    font-weight: 600; /* Slightly bolder for emphasis */
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 /* Spinner */
 #spinner {
     display: none;

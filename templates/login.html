@@ -23,64 +23,66 @@
             justify-content: flex-start;
             align-items: center;
         }
+        .error {
+    color: red;
+    font-weight: bold;
+}
+
 
         .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.3); /* Matches Login page */
-    padding: 15px 30px; /* Matches Login page padding */
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px 30px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
 
-.navbar .logo {
-    color: white; 
-    font-weight: bold;
-    background: none; 
-    padding: 8px 10%;
-    border-radius: 50%; /* Matches rounded logo style in Login */
-    font-size: 28px;
-}
+        .navbar .logo {
+            color: white;
+            font-weight: bold;
+            background: none;
+            padding: 8px 10%;
+            border-radius: 50%;
+            font-size: 28px;
+        }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 10px;
-    margin-right: 80px;
-}
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 10px;
+            margin-right: 80px;
+        }
 
-.nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-    padding: 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
-.nav-links li a:hover {
-    background-color: #4F9CF9;
-}
-
-
+        .nav-links li a:hover {
+            background-color: #4F9CF9;
+        }
 
         .container {
             display: flex;
             width: 90%;
             max-width: 1200px;
             height: 70%;
-            background: linear-gradient(to bottom right, #1a3f85, #4F9CF9); 
+            background: linear-gradient(to bottom right, #1a3f85, #4F9CF9);
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
             margin-top: 150px;
-            height: 600;
         }
 
         .left-section {
@@ -90,7 +92,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center; /* Center content in the left section */
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
         }
@@ -98,23 +100,27 @@
         .left-section h1 {
             font-size: 48px;
             font-weight: bold;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            text-align: center; /* Center the heading */
         }
 
         .login-box {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px; /* Increased gap between fields */
+            align-items: center; /* Center form elements */
         }
 
         .login-input {
-            width: 90%;
+            width: 100%;
+            max-width: 450px;
             padding: 15px;
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 10px;
             outline: none;
+            margin: 5px 0;
         }
 
         .login-input:focus {
@@ -123,8 +129,8 @@
         }
 
         .login-button {
-            width: 60%;
-            margin-left: 16%;
+            width: 100%;
+            max-width: 450px;
             padding: 15px;
             background-color: #4F9CF9;
             color: white;
@@ -135,16 +141,17 @@
             cursor: pointer;
             text-align: center;
             transition: background-color 0.3s ease, transform 0.2s;
+            margin-top: 20px; /* Adds some space above the button */
         }
 
         .login-button:hover {
             background-color: #357ae8;
-            transform: scale(1.05); 
+            transform: scale(1.05);
         }
 
         .right-section {
             flex: 1;
-            background: linear-gradient(to bottom, #245eac, #4F9CF9); 
+            background: linear-gradient(to bottom, #245eac, #4F9CF9);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -157,6 +164,7 @@
         .right-section h2 {
             font-size: 32px;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .right-section p {
@@ -209,6 +217,57 @@
         .social-icons img:hover {
             transform: scale(1.2);
         }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                margin-top: 50px;
+            }
+
+            .left-section, .right-section {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .left-section h1 {
+                font-size: 32px;
+            }
+
+            .login-input, .login-button, .sign-up-button {
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            .login-input {
+                width: 100%; /* Full width for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-input {
+                width: 100%;
+            }
+        }
+        .alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
     </style>
 </head>
 <body>
@@ -218,16 +277,30 @@
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('upload') }}">Upload & Classify</a></li>
           <li><a href="{{ url_for('contact') }}">Contact</a></li>
-          <li><a href="{{ url_for('login') }}">Login/Singup</a></li>
-      </nav>
+          <li><a href="{{ url_for('loginpage') }}">Login/Singup</a></li>
+        </nav>
 
     <div class="container">
         <div class="left-section">
-            <h1>LOGIN</h1>
             <div class="login-box">
-                <input type="text" placeholder="Username" class="login-input">
-                <input type="password" placeholder="Password" class="login-input">
-                <button class="login-button">Login</button>
+                <form id="auth-form" action="{{ url_for('login') }}" method="POST">
+                    <input type="text" name="username" placeholder="Username" class="login-input" required>
+                    <input type="password" name="password" placeholder="Password" class="login-input" required>
+                    <button type="submit" value="login" class="login-button">Login</button>
+                    
+                </form>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div>
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                            {{ message }}
+                            </div>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
             </div>
         </div>
 

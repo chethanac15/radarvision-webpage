@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -69,6 +69,7 @@ body {
 
 
 .container {
+    height: 650px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -78,7 +79,7 @@ body {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
 .signup-box, .section {
@@ -111,13 +112,23 @@ body {
 }
 
 .signup-box input {
-    width: 90%;
-    padding: 15px;
-    margin: 10px 0;
+    width: 100%; /* Full width for better responsiveness */
+    max-width: 350px; /* Prevents inputs from being too large on wider screens */
+    padding: 12px; /* Reduced padding for smaller screens */
+    margin: 8px 0; /* Adjusted margin for better spacing */
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 10px;
     outline: none;
+    
+}
+
+/* Button Responsiveness */
+.signup-button, .login-button {
+    width: 100%; /* Full width for better alignment on small screens */
+    max-width: 200px; /* Limit the width to keep buttons proportional */
+    padding: 12px;
+    font-size: 16px; /* Slightly smaller font for buttons */
 }
 
 .signup-box input:focus {
@@ -178,44 +189,54 @@ footer {
     width: 100%;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
     .container {
+        margin-top: 50px;
         flex-direction: column;
-        margin-top: 100px;
     }
-
     .signup-box, .section {
-        flex: none;
-        width: 100%;
-        border-radius: 0;
+        padding: 20px; /* Reduced padding for smaller screens */
     }
+}
 
-    .signup-box {
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 0;
+@media (max-width: 768px) {
+    .signup-box h2, .section h2 {
+        font-size: 24px; /* Adjust heading size */
     }
-
-    .section {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 20px;
-    }
-
     .signup-box input, .signup-button, .login-button {
-        width: 80%;
+        width: 90%; /* Make inputs and buttons slightly smaller with spacing */
     }
 }
 
 @media (max-width: 480px) {
-
-    .signup-box h2, .section h2 {
-        font-size: 24px;
+    .signup-box input {
+        width: 100%; /* Full width for very small screens */
     }
-
-    .signup-box input, .signup-button, .login-button {
-        width: 100%;
+    .signup-button {
+        width: 100%; /* Full width button */
     }
+    .login-button {
+        width: 100%; /* Full width button */
+    }
+}
+.alert {
+    padding: 10px;
+    margin: 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
 }
 
     </style>
@@ -227,27 +248,42 @@ footer {
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('upload') }}">Upload & Classify</a></li>
           <li><a href="{{ url_for('contact') }}">Contact</a></li>
-          <li><a href="{{ url_for('login') }}">Login/Singup</a></li>
-      </nav>
+          <li><a href="{{ url_for('loginpage') }}">Login/Singup</a></li>
+        </ul>
+    </nav>
 
     <div class="container">
-        <div class="signup-box">
-            <h2>Create Account</h2>
-            <input type="text" placeholder="Full Name">
-            <input type="email" placeholder="Email Address">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Confirm Password">
-            <button class="signup-button">Sign Up</button>
-        </div>
-
-        <div class="section">
+        
+            <div class="signup-box">
+                <form id="auth-form" action="{{ url_for('register') }}" method="post">
+                    <h2>Create Account</h2>
+                    <input type="text" name="username" placeholder="Username">
+                    <input type="email" name="email" placeholder="Email Address">
+                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="confirm_password" placeholder="Confirm Password">
+                    <button type="submit" value="signup" class="signup-button">Sign Up</button>
+                </form>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div>
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                            {{ message }}
+                            </div>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}                
+            </div>
+        
+         <div class="section"> 
             <h2>Already Registered?</h2>
             <p>Log in to access your account and start using MicroClassify.</p>
-            <a href="{{ url_for('login') }}"><button class="login-button">Log In</button></a>
+            <a href="{{ url_for('loginpage') }}"><button class="login-button">Log In</button></a>
         </div>
     </div>
     <footer>
         <p>© 2024 RadarVision. All Rights Reserved.</p>
     </footer>
-    </body>
+</body>
 </html>
