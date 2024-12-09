@@ -9,6 +9,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 import logging
 import os
+from dotenv import load_dotenv
+from config import Config
+
+
+
 
 
 class CustomCNN(nn.Module):
@@ -94,7 +99,9 @@ def predict(image_tensor, class_names):
 app = Flask(__name__)
 
 #DATABASE
-app.secret_key = "RadarVision"
+load_dotenv()
+app.secret_key = os.getenv('SECRET_KEY', 'fallback-secret-key')
+app.config.from_object(Config)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///users.db'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = "False"
