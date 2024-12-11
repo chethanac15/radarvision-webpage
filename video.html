@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Section</title>
+  <link rel="stylesheet" href="video.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Micro-Doppler Video Demo</h1>
+  </header>
+
+  <main class="video-container">
+    <video id="video" width="720" controls>
+      <source src="sample-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="controls">
+      <button id="play" class="control-btn">Play</button>
+      <button id="pause" class="control-btn">Pause</button>
+      <button id="skip-backward" class="control-btn">⟵ 5s</button>
+      <button id="skip-forward" class="control-btn">⟶ 5s</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2024 Micro-Dropper Project</p>
+  </footer>
+
+  <script src="video.js"></script>
+</body>
+</html>
