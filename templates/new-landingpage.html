@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MicroClassify</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #043873 0%, #1a3f85 40%, #245eac 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3); /* More transparent */
+      padding: 15px 30px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+
+        .navbar .logo {
+            color: white; 
+            font-weight: bold;
+            background: none; 
+            padding: 8px 10%;
+            border-radius: 50%;
+            font-size: 28px;
+
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 10px;
+            margin-right: 80px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            background-color: #4F9CF9;
+        }
+
+    .image {
+      display: flex;
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 100px 50px;
+      height: 100vh;
+    }
+
+    .text-container {
+      margin-left: 12.5%;
+      flex: 1;
+      max-width: 600px; 
+      text-align: left;
+    }
+
+    .image h1 {
+      font-size: 56px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .image p {
+      font-size: 20px; 
+      line-height: 1.8; 
+      margin-bottom: 30px; 
+    }
+
+    .cta-button {
+      padding: 15px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      background-color: #4F9CF9;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .cta-button:hover {
+      background-color: #357ae8;
+      transform: scale(1.05);
+    }
+
+    .image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+    }
+
+    .section {
+      padding: 100px 50px;
+      background: white;
+      color: black;
+    }
+
+    .section h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #043873;
+      text-align: center;
+    }
+
+    .section p {
+      font-size: 20px;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+
+    .feature {
+      text-align: center;
+      max-width: 250px;
+    }
+
+    .feature img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      background: #021d42;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .footer p {
+      font-size: 16px;
+    }
+
+    .footer a {
+      color: #4F9CF9;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Existing styles... */
+    
+    .video-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+      background-color: #f4f4f4;
+    }
+    .video-section h2 {
+      font-size: 32px;
+      color: #043873;
+      margin-bottom: 20px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 10px;
+      border: 3px solid #1a3f85;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .controls button {
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background-color: #4F9CF9;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #357ae8;
+    }
+
+    #team-section {
+  padding: 60px 20px;
+  background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+  color: #043873;
+  text-align: center;
+}
+
+#team-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #043873;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.team-member {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  max-width: 350px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.team-member h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #043873;
+}
+
+.team-member p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555555;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #team-section h2 {
+    font-size: 28px;
+  }
+}
+
+
+      
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">MicroClassify</div>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('upload') }}">Upload & Classify</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      <li><a href="{{ url_for('loginpage') }}">Login/Signup</a></li>
+      </ul>
+    </nav>
+
+  <div id="home" class="image">
+    <div class="text-container">
+      <h1>Get More Done with MicroClassify</h1>
+      <p>Project management software that empowers your team to collaborate, plan, analyze, and manage everyday tasks.</p>
+      <a href="{{ url_for('upload') }}"><button class="cta-button">Try MicroClassify Free →</button></a>
+    </div>
+    <div class="image-container">
+      <img src="../static/images/Aircraft-rafiki.svg" alt="Illustration" />
+    </div>
+  </div>
+
+  <div id="mission" class="section">
+    <h2>Our Mission</h2>
+    <p>
+      RadarVision addresses critical safety and security challenges by using advanced radar technology to differentiate drones from other aerial entities such as birds. This innovation ensures reliable and efficient monitoring of airspace to prevent unauthorized activities and enhance security.
+    </p>
+  </div>
+
+  <div id="features" class="section">
+    <h2>Key Features</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="icon1.png" alt="Feature Icon">
+        <p>Real-Time Classification</p>
+      </div>
+      <div class="feature">
+        <img src="icon2.png" alt="Feature Icon">
+        <p>High Accuracy</p>
+      </div>
+      <div class="feature">
+        <img src="icon3.png" alt="Feature Icon">
+        <p>Web-Based Deployment</p>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- End of Hero Section -->
+
+<!-- Video Section -->
+<div id="video" class="video-section">
+  <h2>Introduction to MicroClassify</h2>
+  <div class="video-container">
+    <video id="intro-video" src=".mp4" controls>
+      Your browser does not support the video tag.
+    </video>
+    <div class="controls">
+      <button onclick="playVideo()">Play</button>
+      <button onclick="pauseVideo()">Pause</button>
+      <button onclick="skipVideo(-5)">⟵ Skip Back 5s</button>
+      <button onclick="skipVideo(5)">Skip Forward 5s ⟶</button>
+    </div>
+  </div>
+</div>
+
+<!-- Remaining sections... -->
+<script>
+  const video = document.getElementById('intro-video');
+
+  function playVideo() {
+    video.play();
+  }
+
+  function pauseVideo() {
+    video.pause();
+  }
+
+  function skipVideo(seconds) {
+      video.currentTime += seconds;
+    }
+  </script>
+
+<!--team details-->
+<div id="team-section" class="section">
+  <h2>Meet Our Team</h2>
+  <div class="team-grid">
+    <div class="team-member">
+      <h3>Inchara</h3>
+      <p>Team Leader with expertise in AI and ML, ensuring innovative solutions and effective collaboration.</p>
+    </div>
+    <div class="team-member">
+      <h3>Shravya</h3>
+      <p>Focuses on AI/ML development, creating intelligent systems that enhance user experiences.</p>
+    </div>
+    <div class="team-member">
+      <h3>Diptangshu</h3>
+      <p>IoT expert working on integrating smart devices and seamless communication systems.</p>
+    </div>
+    <div class="team-member">
+      <h3>Anand</h3>
+      <p>Handles frontend and backend development, ensuring robust functionality and smooth interfaces.</p>
+    </div>
+    <div class="team-member">
+      <h3>Likith</h3>
+      <p>UI/UX designer crafting intuitive and visually appealing user experiences.</p>
+    </div>
+    <div class="team-member">
+      <h3>Chethan</h3>
+      <p>Frontend developer focused on building dynamic and responsive web components.</p>
+    </div>
+  </div>
+</div>
+
+
+    
+    
+
+
+</div> <!-- End of Hero Section -->
+  <div id="contact" class="footer"></div>
+  <p>Contact us at <a href="mailto:contact@radarvision.com">contact@radarvision.com</a> or visit our <a href="#">Help Center</a>.</p> <!-- change this later -->
+  </div> 
+</body>  
+</html>
